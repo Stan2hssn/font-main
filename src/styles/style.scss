@@ -6,13 +6,19 @@
 $background: #050505;
 $color: #fff;
 $font: Manrope;
+$font-explication: helvetica, sans-serif;
+
 
 body {
   margin: 0;
   background-color: $background;
   color: #fff;
   font-family: $font;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
 }
+
 
 .model {
   position: absolute;
@@ -21,14 +27,17 @@ body {
   z-index: -9999;
 }
 
+
 .header {
   position: absolute;
   display: flex;
+  background-color: $background;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100vw;
   height: max-content;
+  z-index: 9999;
 
   h1 {
     height: auto;
@@ -46,12 +55,46 @@ body {
     justify-content: center;
     padding: 8px;
     width: 48px;
-    height: auto;
+    height: 48px;
     border-radius: 50%;
     border: 5px solid $color;
     margin: 0 64px;
+    transition: all 0.3s ease-in-out;
+
+  }
+
+  .cross {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    width: 48px;
+    height: 48px;
+    margin: 0 64px;
+    border-radius: 50%;
+    border: 5px solid $color;
+    transition: all 0.3s ease-in-out;
+
+  }
+
+  .cross::before, .cross::after {
+    position: absolute;
+    content: '';
+    border-top: 5px solid $color;
+    border-left: 5px solid $color;
+    width: 30px;
+    height: 30px;
+    transform: rotate(-45deg) translate(43%, 43%);
+  }
+
+  .cross::before {
+    transform: rotate(45deg) translate(-43%, 43%);
+    border-right: 5px solid $color;
+    border-left: none;
   }
 }
+
 
 .giro {
   display: none;
@@ -101,14 +144,14 @@ body {
   }
 }
 
-
 .change {
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100vw;
   height: 100vh;
-
+  z-index: 0;
 
   #input, #text {
     position: absolute;
@@ -143,3 +186,76 @@ body {
 
 }
 
+.explication_page {
+  position: fixed;
+  background-color: $background;
+  width: 100vw;
+  height: 100vh;
+  transform: translateX(101vw);
+  transition: all 0.3s ease-in-out;
+  /*
+  box-shadow: -2px 0px O #959595FF;
+  */
+
+  .text_explication {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 48px;
+    width: 87%;
+    height: 100vh;
+    padding: 0 64px;
+    font-family: $font-explication;
+    font-weight: 300;
+    z-index: 9998;
+  }
+
+  .footer {
+    position: absolute;
+    display: flex;
+    opacity: 0;
+    flex-direction: row;
+    width: 100vw;
+    height: max-content;
+    bottom: 0;
+    font-family: $font-explication;
+    font-weight: 300;
+    transition: all 0.3s ease-in-out;
+
+
+    .credit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 70%;
+      height: max-content;
+      font-size: 32px;
+      border: 2px solid #fff;
+      border-right: none;
+      gap: 32px;
+
+      p {
+        margin: 0;
+        padding: 64px;
+        width: 80%;
+      }
+    }
+
+    .gobelins {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 30%;
+      border: 2px solid #fff;
+
+
+      img {
+        padding: 64px;
+        width: 100%;
+      }
+    }
+  }
+
+}
