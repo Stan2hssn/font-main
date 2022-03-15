@@ -12,6 +12,9 @@ body {
   overflow: hidden;
 }
 
+.wrapper {
+  height: 100%;
+}
 .wrapper .model {
   position: absolute;
   display: flex;
