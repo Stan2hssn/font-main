@@ -2,26 +2,25 @@
   font-family: "Manrope";
   src: url("./Manrope.woff2") format("woff2");
 }
-body {
+html, body {
   margin: 0;
+  position: fixed;
   background-color: #050505;
   color: #fff;
   font-family: Manrope;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
-.wrapper {
-  height: 100%;
-}
-.wrapper .model {
+.model {
   position: absolute;
   display: flex;
   width: 100vw;
   z-index: -9999;
 }
-.wrapper .header {
+
+.header {
   position: absolute;
   display: flex;
   background-color: #050505;
@@ -32,16 +31,17 @@ body {
   height: max-content;
   z-index: 9999;
 }
-.wrapper .header h1 {
+.header h1 {
+  font-family: "Helvetica", sans-serif;
   height: auto;
   margin: 0;
   font-style: normal;
   font-weight: bold;
-  font-size: 63px;
+  font-size: 48px;
   line-height: 28px;
   padding: 85px 64px;
 }
-.wrapper .header .help {
+.header .menu .help {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,10 +51,12 @@ body {
   border-radius: 50%;
   border: 5px solid #fff;
   margin: 0 64px;
-  transition: all 0.3s ease-in-out;
+  opacity: 1;
+  transform: translateY(50%);
+  transition: all 0.5s ease-in-out;
 }
-.wrapper .header .cross {
-  display: none;
+.header .menu .cross {
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -64,9 +66,11 @@ body {
   margin: 0 64px;
   border-radius: 50%;
   border: 5px solid #fff;
-  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: all 0.5s ease-in-out;
 }
-.wrapper .header .cross::before, .wrapper .header .cross::after {
+.header .menu .cross::before, .header .menu .cross::after {
   position: absolute;
   content: "";
   border-top: 5px solid #fff;
@@ -75,12 +79,20 @@ body {
   height: 30px;
   transform: rotate(-45deg) translate(43%, 43%);
 }
-.wrapper .header .cross::before {
+.header .menu .cross::before {
   transform: rotate(45deg) translate(-43%, 43%);
   border-right: 5px solid #fff;
   border-left: none;
 }
-.wrapper .giro {
+
+.active .help {
+  opacity: 0 !important;
+}
+.active .cross {
+  opacity: 1 !important;
+}
+
+.giro3D {
   display: none;
   flex-direction: column;
   width: 100vw;
@@ -88,10 +100,10 @@ body {
   align-items: center;
   justify-content: center;
 }
-.wrapper .giro svg {
+.giro3D svg {
   width: 250px;
 }
-.wrapper .giro svg #Calque_1 {
+.giro3D svg #Calque_1 {
   transform-origin: center;
   animation: giro 10s infinite;
 }
@@ -112,7 +124,7 @@ body {
     transform: rotateX(34deg) rotateY(17deg) rotateZ(2deg);
   }
 }
-.wrapper .giro svg h2 {
+.giro3D svg h2 {
   width: 751px;
   font-size: 40px;
   font-style: normal;
@@ -121,7 +133,8 @@ body {
   text-align: center;
   text-transform: uppercase;
 }
-.wrapper .change {
+
+.change {
   position: absolute;
   display: flex;
   align-items: center;
@@ -130,7 +143,7 @@ body {
   height: 100vh;
   z-index: 0;
 }
-.wrapper .change #input, .wrapper .change #text {
+.change #input, .change #text {
   position: absolute;
   display: flex;
   background: none;
@@ -143,30 +156,29 @@ body {
   margin: 0;
   font-family: Manrope;
 }
-.wrapper .change #text span {
+.change #text span {
   letter-spacing: initial;
   margin: 0.15em;
   border-bottom: 6px solid #fff;
 }
-.wrapper .change #input, .wrapper .change #input:focus {
+.change #input, .change #input:focus {
   max-width: 95vw;
   letter-spacing: 0.35em;
-  transform: translateX(20px);
   color: transparent;
   outline: none;
+  transform: translateX(20px);
 }
-.wrapper .explication_page {
+
+.explication_page {
   position: fixed;
   background-color: #050505;
   width: 100vw;
   height: 100vh;
-  transform: translateX(101vw);
+  opacity: 0;
   transition: all 0.3s ease-in-out;
-  /*
-  box-shadow: -2px 0px O #959595FF;
-  */
+  z-index: -1;
 }
-.wrapper .explication_page .text_explication {
+.explication_page .text_explication {
   display: flex;
   position: absolute;
   justify-content: center;
@@ -180,7 +192,7 @@ body {
   font-weight: 300;
   z-index: 9998;
 }
-.wrapper .explication_page .footer {
+.explication_page .footer {
   position: absolute;
   display: flex;
   opacity: 0;
@@ -192,30 +204,32 @@ body {
   font-weight: 300;
   transition: all 0.3s ease-in-out;
 }
-.wrapper .explication_page .footer .credit {
+.explication_page .footer .credit {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 70%;
   height: max-content;
   font-size: 32px;
-  border: 2px solid #fff;
+  border-right: 2px solid #fff;
+  border-top: 2px solid #fff;
   border-right: none;
   gap: 32px;
 }
-.wrapper .explication_page .footer .credit p {
+.explication_page .footer .credit p {
   margin: 0;
   padding: 64px;
   width: 80%;
 }
-.wrapper .explication_page .footer .gobelins {
+.explication_page .footer .gobelins {
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 30%;
-  border: 2px solid #fff;
+  border-left: 2px solid #fff;
+  border-top: 2px solid #fff;
 }
-.wrapper .explication_page .footer .gobelins img {
+.explication_page .footer .gobelins img {
   padding: 64px;
   width: 100%;
 }
