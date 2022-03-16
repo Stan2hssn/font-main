@@ -1,14 +1,16 @@
 import * as THREE from 'three';
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
-import model from "./models/scene.gltf"
-import gsap from "./js/gsap"
+import model from "./src/models/scene.gltf"
+import gsap from "./src/js/gsap"
 
 console.log('work')
 
 const scene = new THREE.Scene();
 
-let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100);
-camera.position.set( 13, 1.5, 11);
+const size = 400 / 200;
+
+let camera = new THREE.PerspectiveCamera(40, size, 0.1, 100);
+camera.position.set( 10, 1.6, 8);
 camera.rotation.set(-0.2, 0.9, 0.15);
 
 
@@ -25,12 +27,12 @@ const renderer = new THREE.WebGLRenderer({
     powerPreference: 'high-performance'
 });
 renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(400, 200);
 renderer.setClearColor(0x000000, 1);
 
 window.addEventListener('resize', () => {
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.aspect = window.innerWidth / window.innerHeight;
+    renderer.setSize(400, 200);
+    camera.aspect = size;
     camera.updateProjectionMatrix();
 })
 

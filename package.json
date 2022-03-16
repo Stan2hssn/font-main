@@ -2,7 +2,7 @@
   "name": "three",
   "version": "1.0.0",
   "description": "Three project",
-  "main": "src/intro.html",
+  "main": "index.html",
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.0",

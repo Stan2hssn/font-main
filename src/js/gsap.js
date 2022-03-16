@@ -1,5 +1,3 @@
-import index from '../index.js';
-
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
 }
@@ -10,7 +8,7 @@ let tl = gsap.timeline({
     scrollTrigger: {
         trigger: ".intro",
         start: "center center",
-        end: "2000vh center",
+        end: "1500vh center",
         scrub: true,
         markers: true
     }
@@ -23,8 +21,8 @@ tl.to(".hero", {
 let fadeOut = gsap.timeline({
     scrollTrigger: {
         trigger: ".intro",
-        start: "2300vh center",
-        end: "2500vh center",
+        start: "1700vh center",
+        end: "1900vh center",
         scrub: true,
         markers: true
     }
@@ -37,8 +35,8 @@ fadeOut.to(".hero", {
 let fadeIn = gsap.timeline({
     scrollTrigger: {
         trigger: ".intro",
-        start: "2500vh center",
-        end: "2600vh center",
+        start: "2000vh center",
+        end: "2200vh center",
         scrub: true,
         markers: true
     }
@@ -48,3 +46,19 @@ let fadeIn = gsap.timeline({
 fadeIn.to("#three", {
     opacity: "1", ease: Power1.easeInOut, duration: 1
 })
+
+let fadeInTwo = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".intro",
+        start: "2000vh center",
+        end: "2000vh center",
+        scrub: true,
+        markers: true
+    }
+});
+
+
+fadeInTwo.to(".text", {
+    opacity: "1", ease: Power0.linear, duration: 1
+})
+

@@ -3,7 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const path = require('path')
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './index.js',
   output: {
     filename: 'bundle.[fullhash].js',
     path: path.resolve(__dirname, '../dist'),
@@ -33,7 +33,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Three Template',
       favicon: path.resolve(__dirname, '../static/favicon.ico'),
-      template: path.resolve(__dirname, '../src/intro.html'),
+      template: path.resolve(__dirname, '../index.html'),
       minify: true,
     }),
   ],
