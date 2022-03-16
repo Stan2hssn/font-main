@@ -1,4 +1,4 @@
-import main from '../index.js';
+import index from '../index.js';
 
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
