@@ -15,7 +15,7 @@ module.exports = webpackMerge.merge(
     {
       rules: [
         {
-          test: /\.styl$/,
+          test: /\.css$/,
           use: [
             {
               loader: MiniCssExtractPlugin.loader,

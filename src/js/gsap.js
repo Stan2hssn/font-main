@@ -10,7 +10,7 @@ let tl = gsap.timeline({
         start: "center center",
         end: "1500vh center",
         scrub: true,
-        markers: true
+        markers: false
     }
 });
 
@@ -24,7 +24,7 @@ let fadeOut = gsap.timeline({
         start: "1700vh center",
         end: "1900vh center",
         scrub: true,
-        markers: true
+        markers: false
     }
 });
 
@@ -38,7 +38,7 @@ let fadeIn = gsap.timeline({
         start: "2000vh center",
         end: "2200vh center",
         scrub: true,
-        markers: true
+        markers: false
     }
 });
 
@@ -53,7 +53,7 @@ let fadeInTwo = gsap.timeline({
         start: "2000vh center",
         end: "2000vh center",
         scrub: true,
-        markers: true
+        markers: false
     }
 });
 

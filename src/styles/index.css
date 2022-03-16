@@ -142,6 +142,7 @@ html, body {
 }
 
 .change {
+  background-color: #050505;
   position: absolute;
   display: flex;
   align-items: center;
@@ -182,7 +183,7 @@ html, body {
   width: 100vw;
   height: 100vh;
   opacity: 0;
-  transition: all 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   z-index: -1;
 }
 .explication_page .text_explication {
