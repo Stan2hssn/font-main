@@ -5,8 +5,6 @@ window.onbeforeunload = function () {
 let tl = gsap.timeline({
     scrollTrigger: {
         trigger: ".logo",
-        start: "center center",
-        end: "300px center",
         scrub: true,
         markers: false
     }

@@ -19,8 +19,8 @@ body {
   position: fixed;
   display: flex;
   justify-content: center;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   fill: currentColor;
 }
 .intro .wrapper {
@@ -121,75 +121,31 @@ body {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
-.intro .logo {
-  position: fixed;
-  align-self: center;
-  overflow: visible;
-  z-index: 1000;
-  width: 80vw;
-  transform-origin: center;
-  opacity: 1;
-  transition: all 0.2s ease-in-out;
-}
-.intro .header {
+
+.hero {
+  position: absolute;
+  height: 100%;
+  text-align: center;
+  font-family: helvetica;
+  font-size: 96px;
+  color: #fff;
+  text-transform: uppercase;
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin: 60px 16px 0 16px;
-  height: max-content;
-}
-.intro .L {
-  position: absolute;
-  transform: matrix(1, 0, 0, 1, -1000, -8200) scale(90);
-}
-.intro .U {
-  position: absolute;
-  transform: matrix(1, 0, 0, 1, 0, 800) scale(5);
-  transform-origin: 100px 0 !important;
-}
-.intro .O {
-  position: absolute;
-  transform: matrix(1, 0, 0, 1, 0, -1100) scale(5);
-  transform-origin: 195px 0 !important;
-}
-.intro .M {
-  position: absolute;
-  transform: matrix(1, 0, 0, 1, 0, 800) scale(5);
-  transform-origin: 275px 0 !important;
-}
-.intro .U-2 {
-  position: absolute;
-  transform: matrix(1, 0, 0, 1, 0, -930) scale(5);
-  transform-origin: 300px 0 !important;
-}
-.intro .logo_header {
-  display: none;
-  position: relative;
-  width: 40vw;
-  transition: all 0.5s ease-in;
-  opacity: 0;
-}
-.intro .link {
-  display: none;
-  opacity: 0;
-  flex-direction: row;
-  align-items: flex-start;
+  flex-direction: column;
   justify-content: center;
-  border-radius: 50px;
-  color: #ffffff;
-  text-decoration: none;
-  font-family: Manrope-bold, sans-serif;
-  font-size: 18px;
-  letter-spacing: 0.03em;
-  transition: all 0.5s ease-in;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin: 0;
+  transform: scale(74) translate(4px, 19px);
+}
+.hero span {
+  margin-top: 24px;
+  font-size: 32px;
+  font-weight: 500;
 }
 
-.block {
-  position: relative;
-  width: 100vw;
-  height: 65vh;
+#three {
+  position: fixed;
 }
 
-/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=gsap.css.map */

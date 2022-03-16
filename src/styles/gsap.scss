@@ -1,0 +1,175 @@
+$background: #050505;
+$white: #ffffff;
+
+$font: helvetica;
+$txt-intro: Manrope-Medium, sans-serif;
+$link: Manrope-bold, sans-serif;
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 600vh;
+  background-color: $background;
+  overflow-X: hidden;
+  scroll-behavior: smooth;
+}
+
+.background {
+  position: absolute;
+  background-repeat: repeat;
+  width: 132vw;
+  transform: translate(-16vw, -40vh);
+  z-index: 0;
+  //fill: currentColor;
+
+}
+
+.intro {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  fill: currentColor;
+
+  .wrapper {
+    position: absolute;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+
+  .indicator {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+
+
+    .help {
+      font-family: $txt-intro;
+      font-size: 24px;
+      color: $background;
+    }
+
+    .round {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid $background;
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+    }
+
+    #cta {
+      width: 100%;
+      cursor: pointer;
+      position: absolute;
+    }
+
+    #cta .arrow {
+      left: 4%;
+    }
+
+    .arrow {
+      position: absolute;
+      bottom: 0;
+      margin-left: 0;
+      width: 20px;
+      height: 20px;
+      background: no-repeat;
+      background-size: contain;
+      top: 15px;
+    }
+
+    .second {
+      margin-left: 8px;
+    }
+
+    .next {
+      background-image: url("/src/SVG/arrow.svg");
+    }
+
+    @keyframes bounceAlpha {
+      0% {
+        opacity: 1;
+        transform: translateX(0px) scale(1);
+      }
+      25% {
+        opacity: 0;
+        transform: translateX(10px) scale(0.9);
+      }
+      26% {
+        opacity: 0;
+        transform: translateX(-10px) scale(0.9);
+      }
+      55% {
+        opacity: 1;
+        transform: translateX(0px) scale(1);
+      }
+    }
+
+    .bounceAlpha {
+      animation-name: bounceAlpha;
+      animation-duration: 1.4s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    .arrow.first.bounceAlpha {
+      animation-name: bounceAlpha;
+      animation-duration: 1.4s;
+      animation-delay: 0.2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    .round:hover .arrow {
+      animation-name: bounceAlpha;
+      animation-duration: 1.4s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    .round:hover .arrow.first {
+      animation-name: bounceAlpha;
+      animation-duration: 1.4s;
+      animation-delay: 0.2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+  }
+
+}
+
+.hero {
+  position: absolute;
+  height: 100%;
+  text-align: center;
+  font-family: helvetica;
+  font-size: 96px;
+  color: #fff;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin: 0;
+  transform: scale(74) translate(4px, 19px);
+
+  span {
+    margin-top: 24px;
+    font-size: 32px;
+    font-weight: 500;
+  }
+}
+
+#three {
+  position: fixed;
+}
