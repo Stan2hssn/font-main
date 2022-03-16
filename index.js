@@ -1,7 +1,8 @@
 import * as THREE from 'three';
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
-import model from "./src/models/scene.gltf"
-import gsap from "./src/js/gsap"
+import model from "./src/models/scene.gltf";
+import gsap from "./src/js/gsap";
+import './src/styles/main.css';
 
 console.log('work')
 
@@ -39,28 +40,32 @@ window.addEventListener('resize', () => {
 
 const axesHELPER = new THREE.AxesHelper(5);
 
+const clock = new THREE.Clock();
 
-/*const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial({color: 0x00ff00});
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);*/
 let mixer;
 let loader = new GLTFLoader();
 loader.load(// resource URL
     model, // called when the resource is loaded
     function (gltf) {
-
         console.log(gltf);
-        /*mixer = new THREE.AnimationMixer(model);
-        const clips = gltf.animation;
-        const clip = THREE.AnimationClip.findByName(clips, 'PlaneAction');
-        const action = mixer.clipAction(clip);
-        action.play();*/
-        scene.add(gltf.scene);
-        window.requestAnimationFrame(() => {
-            renderer.render(scene, camera)
-        });
 
+        mixer = new THREE.AnimationMixer(gltf.scene);
+/*
+        const clip = THREE.AnimationClip.findByName(clips, 'PlaneAction');
+*/
+        const action = mixer.clipAction(gltf.animations[0]);
+
+        action.play();
+        scene.add(gltf.scene);
+
+        animate();
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const delta = clock.getDelta();
+            mixer.update(delta);
+            renderer.render(scene, camera);
+        }
 
     }, // called while loading is progressing
     function (xhr) {
@@ -73,6 +78,11 @@ loader.load(// resource URL
         console.log('An error happened');
 
     },);
+
+
+
+
+
 /*
 scene.add(axesHELPER);*/
 

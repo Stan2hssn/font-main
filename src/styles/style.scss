@@ -53,6 +53,7 @@ html, body {
   .menu {
 
     .help {
+      background-color: $background;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -64,8 +65,8 @@ html, body {
       margin: 0 64px;
       opacity: 1;
       transform: translateY(50%);
-      transition: all 0.5s ease-in-out;
-
+      transition: opacity 0.5s ease-in-out;
+      z-index: 1;
     }
 
     .cross {
@@ -81,7 +82,7 @@ html, body {
       border: 5px solid $color;
       opacity: 0;
       transform: translateY(-50%);
-      transition: all 0.5s ease-in-out;
+      transition: opacity 0.5s ease-in-out;
 
     }
 
@@ -93,23 +94,30 @@ html, body {
       width: 30px;
       height: 30px;
       transform: rotate(-45deg) translate(43%, 43%);
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
     }
 
     .cross::before {
       transform: rotate(45deg) translate(-43%, 43%);
       border-right: 5px solid $color;
       border-left: none;
+
     }
   }
 }
 
-.active {
+.menu.active {
   .help {
-    opacity: 0 !important;
+    opacity: 0 ;
   }
 
   .cross {
-    opacity: 1 !important;
+    opacity: 1 ;
+  }
+
+  .cross::before, .cross::after {
+    opacity: 1 ;
   }
 
 }

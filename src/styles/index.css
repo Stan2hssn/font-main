@@ -42,6 +42,7 @@ html, body {
   padding: 85px 64px;
 }
 .header .menu .help {
+  background-color: #050505;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,7 +54,8 @@ html, body {
   margin: 0 64px;
   opacity: 1;
   transform: translateY(50%);
-  transition: all 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 1;
 }
 .header .menu .cross {
   display: flex;
@@ -68,7 +70,7 @@ html, body {
   border: 5px solid #fff;
   opacity: 0;
   transform: translateY(-50%);
-  transition: all 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 .header .menu .cross::before, .header .menu .cross::after {
   position: absolute;
@@ -78,6 +80,8 @@ html, body {
   width: 30px;
   height: 30px;
   transform: rotate(-45deg) translate(43%, 43%);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 .header .menu .cross::before {
   transform: rotate(45deg) translate(-43%, 43%);
@@ -85,11 +89,14 @@ html, body {
   border-left: none;
 }
 
-.active .help {
-  opacity: 0 !important;
+.menu.active .help {
+  opacity: 0;
 }
-.active .cross {
-  opacity: 1 !important;
+.menu.active .cross {
+  opacity: 1;
+}
+.menu.active .cross::before, .menu.active .cross::after {
+  opacity: 1;
 }
 
 .giro3D {

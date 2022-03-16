@@ -28,7 +28,7 @@
   },
   "scripts": {
     "sass": "sass --watch ./src/styles/style.scss:./src/styles/index.css",
-    "sass-2": "sass --watch ./src/styles/gsap.scss:./src/styles/gsap.css",
+    "sass-2": "sass --watch ./src/styles/gsap.scss:./src/styles/main.css",
     "build": "webpack --config ./bundler/webpack.prod.js",
     "watch": "webpack --watch --config ./bundler/webpack.prod.js",
     "dev": "webpack serve --config ./bundler/webpack.dev.js --client-logging warn"

@@ -1,3 +1,5 @@
+import '../styles/index.css';
+
 const menu = document.querySelector('.menu');
 const Explication = document.querySelector('.explication_page');
 const footer = document.querySelector('.footer');
@@ -9,6 +11,7 @@ menu.addEventListener('click', function () {
         footer.style.opacity ='0';
         Explication.style.opacity ='0';
         Explication.style.zIndex ='-1';
+        console.log('oui')
     }
     else {
         menu.setAttribute('attributes', 'active');
