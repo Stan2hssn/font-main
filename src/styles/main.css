@@ -83,7 +83,7 @@ html, body {
 }
 .intro .indicator .round .two {
   animation: bounceAlpha 1.4s infinite linear;
-  margin-top: 5%;
+  margin-top: 3%;
 }
 @keyframes bounceAlpha {
   0% {
