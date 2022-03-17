@@ -11,6 +11,8 @@ html, body {
   height: 600vh;
   background-color: $background;
   overflow-X: hidden;
+  overscroll-behavior: contain;
+
   scroll-behavior: smooth;
 }
 
