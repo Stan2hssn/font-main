@@ -5,7 +5,7 @@ $font: helvetica;
 $txt-intro: Manrope-Medium, sans-serif;
 $link: Manrope-bold, sans-serif;
 
-body {
+html, body {
   margin: 0;
   width: 100vw;
   height: 600vh;
@@ -31,6 +31,7 @@ body {
   height: 100%;
   width: 100%;
   fill: currentColor;
+  background: $background;
 
   .wrapper {
     position: absolute;
@@ -47,97 +48,66 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    gap: 16px;
-
+    gap: 8ex;
+    transition: opacity 0.5s ease-in-out;
 
     .help {
       font-family: $txt-intro;
-      font-size: 24px;
+      font-size: 3.5rem;
+      text-transform: uppercase;
       color: $background;
     }
 
     .round {
       display: flex;
+      flex-direction: column;
+      padding-bottom: 20px;
       align-items: center;
       justify-content: center;
-      border: 2px solid $background;
-      width: 40px;
-      height: 40px;
+      border: 6px solid $background;
+      width: 120px;
+      height: 100px;
       border-radius: 100%;
-    }
 
-    #cta {
-      width: 100%;
-      cursor: pointer;
-      position: absolute;
-    }
+      .arrows {
+        position: absolute;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        animation: bounceAlpha 1.4s infinite linear  0.1s;
 
-    #cta .arrow {
-      left: 4%;
-    }
+        .arrow {
+          width: 6px;
+          height: 30px;
+          background: $background;
+          border-radius: 0px;
+          margin: 6px;
+        }
 
-    .arrow {
-      position: absolute;
-      bottom: 0;
-      margin-left: 0;
-      width: 20px;
-      height: 20px;
-      background: no-repeat;
-      background-size: contain;
-      top: 15px;
-    }
+        .first {
+          transform: rotate(-45deg);
+        }
 
-    .second {
-      margin-left: 8px;
-    }
+        .second {
+          transform: rotate(45deg);
+        }
 
-    @keyframes bounceAlpha {
-      0% {
-        opacity: 1;
-        transform: translateX(0px) scale(1);
+
       }
-      25% {
-        opacity: 0;
-        transform: translateX(10px) scale(0.9);
+
+      .two {
+        animation: bounceAlpha 1.4s infinite linear;
+        margin-top: 50px;
       }
-      26% {
-        opacity: 0;
-        transform: translateX(-10px) scale(0.9);
+
+      @keyframes bounceAlpha {
+        0% {opacity: 1; transform: translateY(0px) scale(1);}
+        25%{opacity: 0; transform:translateY(20px) scale(0.9);}
+        26%{opacity: 0; transform:translateY(-20px) scale(0.9);}
+        55% {opacity: 1; transform: translateY(0px) scale(1);}
       }
-      55% {
-        opacity: 1;
-        transform: translateX(0px) scale(1);
-      }
-    }
-
-    .bounceAlpha {
-      animation-name: bounceAlpha;
-      animation-duration: 1.4s;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-    }
-
-    .arrow.first.bounceAlpha {
-      animation-name: bounceAlpha;
-      animation-duration: 1.4s;
-      animation-delay: 0.2s;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-    }
-
-    .round:hover .arrow {
-      animation-name: bounceAlpha;
-      animation-duration: 1.4s;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-    }
-
-    .round:hover .arrow.first {
-      animation-name: bounceAlpha;
-      animation-duration: 1.4s;
-      animation-delay: 0.2s;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
     }
   }
 
@@ -147,7 +117,7 @@ body {
   position: absolute;
   height: 100%;
   text-align: center;
-  font-family: helvetica;
+  font-family: 'helvetica', sans-serif;
   font-size: 96px;
   color: #fff;
   text-transform: uppercase;
@@ -158,6 +128,7 @@ body {
   flex-wrap: nowrap;
   margin: 0;
   transform: scale(74) translate(4px, 19px);
+  transition: opacity 0.5s ease-in-out;
 
   span {
     margin-top: 24px;
@@ -168,19 +139,21 @@ body {
 
 .giro {
   position: fixed;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
+  gap: 3.5ex;
 
 
   #three {
     width: 200px;
     height: 400px;
     opacity: 0;
-    z-index: -1;
+    z-index: -5;
+    transition: opacity 0.5s ease-in-out
   }
 
   .text {
@@ -192,23 +165,25 @@ body {
     text-transform: uppercase;
     margin: 24px 128px;
     opacity: 0;
-    transition: all 0.3s ease-in-out;
+    transition: opacity  0.5s ease-in-out;
   }
 
   .cta {
     display: inline-block;
     border: none;
     padding: 1rem 2rem;
-    margin: 0;
+    margin: 1rem 0;
     text-decoration: none;
     background: #fff;
     color: #050505;
     font-family: sans-serif;
-    font-size: 24px;
+    font-size: 2.5rem;
     text-transform: uppercase;
     cursor: pointer;
     text-align: center;
     -webkit-appearance: none;
     -moz-appearance: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out
   }
 }

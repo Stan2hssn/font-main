@@ -4,6 +4,8 @@ import model from "./src/models/scene.gltf";
 import gsap from "./src/js/gsap";
 import './src/styles/main.css';
 
+
+
 console.log('work')
 
 const scene = new THREE.Scene();
@@ -24,12 +26,12 @@ const canvas = document.querySelector('canvas');
 const renderer = new THREE.WebGLRenderer({
     antialias: true,
     canvas: canvas,
-    alpha: false,
+    alpha: true,
     powerPreference: 'high-performance'
 });
 renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
 renderer.setSize(400, 200);
-renderer.setClearColor(0x000000, 1);
+renderer.setClearColor(0x000000, 0);
 
 window.addEventListener('resize', () => {
     renderer.setSize(400, 200);
