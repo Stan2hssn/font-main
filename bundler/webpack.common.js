@@ -41,29 +41,32 @@ module.exports = {
     ],
     module: {
         rules: [
+
             {
-                test: /\.(jpg|png|gif|svg|jpeg)$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {outputPath: 'assets/images/'},
-                    },
-                ],
+                test: /\.(jpe?g|svg|png|gif|ico|eot|ttf|woff2?)(\?v=\d+\.\d+\.\d+)?$/i,
+                type: 'asset/resource',
             },
-            {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            limit: 10000,
-                            mimetype: 'application/octet-stream',
-                            name: 'Manrope.woff2',
-                            outputPath: 'assets/fonts/'
-                        },
-                    },
-                ],
-            },
+
+            /* test: /\.(jpg|png|gif|svg|jpeg)$/,
+             use: [
+                 {
+                     loader: 'file-loader',
+                     options: {outputPath: 'assets/images/'},
+                 },
+             ],
+         },
+         {
+             test: /\.(woff|woff2|eot|ttf|otf)$/,
+             use: [
+                 {
+                     loader: 'file-loader',
+                     options: {
+                         name: '[Manrope].[woff2]',
+                         outputPath: 'assets/fonts/'
+                     },
+                 },
+             ],
+         },*/
             {
                 test: /\.(html)$/,
                 use: [
