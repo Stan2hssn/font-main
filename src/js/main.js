@@ -11,8 +11,10 @@ menu.addEventListener('click', function () {
         menu.classList.remove('active');
         footer.style.opacity ='0';
         explication.style.opacity ='0';
-        explication.style.zIndex ='-1';
         console.log('oui')
+        setTimeout(function() {
+            explication.style.zIndex ='-1';
+        }, 300)
     }
     else {
         menu.setAttribute('attributes', 'active');

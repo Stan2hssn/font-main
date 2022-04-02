@@ -58,7 +58,7 @@ module.exports = {
                         options: {
                             limit: 10000,
                             mimetype: 'application/octet-stream',
-                            name: '[Manrope].[woff2]',
+                            name: 'Manrope.woff2',
                             outputPath: 'assets/fonts/'
                         },
                     },
